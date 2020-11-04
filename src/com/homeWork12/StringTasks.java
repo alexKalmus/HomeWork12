@@ -15,16 +15,9 @@ public class StringTasks {
     }
     static String cesarCrypt (String s, int key){
         char[] cesarArr = s.toCharArray();
-        char[] firstSymbol = new char[key];
-        for (int i = cesarArr.length - key, j = 0 ; j < key; i++, j++) {
-            firstSymbol[j] = cesarArr [i];
-        }
-        for (int i = cesarArr.length -1; i >= key; i--) {
-                cesarArr[i] = cesarArr[i-key];
-        }
-
-        for (int i = 0; i < firstSymbol.length; i++) {
-            cesarArr[i] = firstSymbol[i];
+        for (int i = 0; i < cesarArr.length; i++) {
+            int index = (int)cesarArr[i] + key;
+            cesarArr[i] = (char)index;
         }
         String cesarS = String.valueOf(cesarArr);
         return cesarS;
